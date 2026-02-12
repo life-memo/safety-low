@@ -30,6 +30,15 @@
 - `main` への push で `.github/workflows/pages.yml` が実行されます。
 - **Settings → Pages → Source: GitHub Actions** を選択してください。
 
+## PRで「This branch has conflicts」が出るとき
+
+以下の順で解消すると確実です。
+
+1. PRブランチを最新の `main` で更新（rebase か merge）
+2. `README.md` と `index.html` の競合マーカーを解消
+3. 競合解消後に push
+4. PR画面を再読み込みしてチェックが通ることを確認
+
 ## もし「ファイルがない」ように見える場合
 
 1. GitHubでブランチが `main` か確認
