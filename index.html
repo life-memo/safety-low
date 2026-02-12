@@ -3,190 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>日本・米英 安全衛生法比較</title>
+    <title>Safety-low | Japan US UK Safety Law</title>
     <style>
       :root {
-        --bg: #0b1020;
-        --panel: #131a2e;
-        --panel-2: #1a2340;
-        --text: #eaf0ff;
-        --muted: #a7b3d6;
-        --accent: #7c9cff;
-        --accent-2: #48d9b3;
-        --border: rgba(255, 255, 255, 0.12);
+        --bg: #060816;
+        --bg-soft: #10162e;
+        --glass: rgba(255, 255, 255, 0.08);
+        --text: #f4f7ff;
+        --muted: #b6c0e9;
+        --line: rgba(255, 255, 255, 0.16);
+        --c1: #6d8dff;
+        --c2: #46ddb1;
+        --c3: #ff7eb6;
       }
-
       * { box-sizing: border-box; }
-
       body {
         margin: 0;
-        font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, sans-serif;
         color: var(--text);
+        font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, sans-serif;
         background:
-          radial-gradient(circle at 15% -10%, rgba(124, 156, 255, 0.35), transparent 38%),
-          radial-gradient(circle at 90% 10%, rgba(72, 217, 179, 0.2), transparent 30%),
-          var(--bg);
-        min-height: 100vh;
+          radial-gradient(80rem 40rem at -10% -10%, rgba(109, 141, 255, 0.35), transparent),
+          radial-gradient(70rem 35rem at 120% 0%, rgba(70, 221, 177, 0.25), transparent),
+          linear-gradient(180deg, #090d1e 0%, var(--bg) 100%);
       }
-
-      .container {
-        max-width: 980px;
+      .wrap {
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 2rem 1rem 3rem;
+        padding: 2rem 1rem 4rem;
       }
-
       .hero {
-        background: linear-gradient(135deg, rgba(124, 156, 255, 0.24), rgba(72, 217, 179, 0.18));
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        position: relative;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        padding: 2.2rem;
+        background: linear-gradient(135deg, rgba(109,141,255,0.23), rgba(255,126,182,0.16), rgba(70,221,177,0.18));
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
       }
-
-      .tag {
-        display: inline-block;
-        font-size: 0.78rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        padding: 0.3rem 0.7rem;
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(120deg, transparent 0 28px, rgba(255,255,255,0.04) 28px 31px);
+        pointer-events: none;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1px solid var(--line);
         border-radius: 999px;
-        border: 1px solid var(--border);
+        padding: 0.35rem 0.75rem;
+        background: rgba(0, 0, 0, 0.2);
         color: var(--muted);
+        font-size: 0.8rem;
       }
-
+      .badge strong { color: #fff; }
       h1 {
-        margin: 0.8rem 0 0.7rem;
-        line-height: 1.2;
-        font-size: clamp(1.7rem, 4vw, 2.5rem);
+        margin: 0.9rem 0 0.8rem;
+        font-size: clamp(1.8rem, 4.6vw, 3rem);
+        line-height: 1.15;
       }
-
       .lead {
         margin: 0;
         color: var(--muted);
+        max-width: 62ch;
       }
-
-      .actions {
+      .cta {
         margin-top: 1.25rem;
         display: flex;
+        gap: 0.7rem;
         flex-wrap: wrap;
-        gap: 0.75rem;
       }
-
       .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
         text-decoration: none;
         border-radius: 12px;
-        padding: 0.7rem 1rem;
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 0.72rem 1.05rem;
         border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
       }
+      .btn-main { background: linear-gradient(120deg, var(--c1), #7aa8ff); color: white; }
+      .btn-sub { border-color: var(--line); color: var(--text); background: rgba(255,255,255,0.05); }
 
-      .btn.primary {
-        background: linear-gradient(135deg, var(--accent), #6f84ff 50%, #8fb3ff);
-        color: #fff;
+      .stats {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.7rem;
       }
-
-      .btn.secondary {
-        border-color: var(--border);
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.03);
+      .stat {
+        background: rgba(0,0,0,0.25);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.7rem 0.8rem;
       }
+      .stat b { font-size: 1.15rem; }
+      .stat span { color: var(--muted); font-size: 0.87rem; display: block; }
 
       .grid {
-        margin-top: 1.2rem;
+        margin-top: 1.1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 0.8rem;
       }
-
       .card {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 14px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 16px;
         padding: 1rem;
       }
-
-      .card h3 {
-        margin: 0 0 0.4rem;
-        font-size: 1rem;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.93rem;
-      }
-
-      .section {
-        margin-top: 1.1rem;
-        background: var(--panel-2);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1rem 1.1rem;
-      }
-
-      .section h2 {
-        margin: 0 0 0.5rem;
-        font-size: 1.1rem;
-      }
-
-      .section ul {
-        margin: 0;
-        padding-left: 1.2rem;
-        color: var(--muted);
-      }
-
-      .footer-note {
-        margin-top: 0.9rem;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
+      .card h3 { margin: 0 0 0.4rem; }
+      .card p { margin: 0; color: var(--muted); }
+      .small { margin-top: 1rem; color: var(--muted); font-size: 0.88rem; }
     </style>
   </head>
   <body>
-    <div class="container">
+    <main class="wrap">
       <section class="hero">
-        <span class="tag">Japan × US × UK / Safety & Health Law</span>
-        <h1>日本・米国・英国の<br />安全衛生法規制を比較</h1>
-        <p class="lead">
-          一次ソース付きで、制度の違い・実務の着眼点を短時間で確認できる比較資料です。
-        </p>
+        <span class="badge">✨ <strong>Visual Update</strong> 2026-02</span>
+        <h1>日本・米国・英国の<br>安全衛生法比較ポータル</h1>
+        <p class="lead">「かわってない」を解消するため、トップページをさらに刷新。一次ソースへ即ジャンプしつつ、比較本文に1クリックで到達できます。</p>
 
-        <div class="actions">
-          <a class="btn primary" href="./japan_us_uk_safety_health_comparison.md">📘 比較資料を読む</a>
-          <a class="btn secondary" href="https://elaws.e-gov.go.jp/document?lawid=347AC0000000057">🇯🇵 安衛法（e-Gov）</a>
-          <a class="btn secondary" href="https://www.osha.gov/laws-regs">🇺🇸 OSHA 法令</a>
-          <a class="btn secondary" href="https://www.legislation.gov.uk/ukpga/1974/37/contents">🇬🇧 HSWA 1974</a>
+        <div class="cta">
+          <a class="btn btn-main" href="./japan_us_uk_safety_health_comparison.md">📘 比較本文を開く</a>
+          <a class="btn btn-sub" href="https://elaws.e-gov.go.jp/document?lawid=347AC0000000057">🇯🇵 e-Gov</a>
+          <a class="btn btn-sub" href="https://www.osha.gov/laws-regs">🇺🇸 OSHA</a>
+          <a class="btn btn-sub" href="https://www.legislation.gov.uk/ukpga/1974/37/contents">🇬🇧 HSWA</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>3か国</b><span>日・米・英を同時比較</span></div>
+          <div class="stat"><b>一次ソース</b><span>法令原文リンク付き</span></div>
+          <div class="stat"><b>実務視点</b><span>運用差分を短時間把握</span></div>
         </div>
       </section>
 
-      <section class="grid" aria-label="overview cards">
-        <article class="card">
-          <h3>日本</h3>
-          <p>安衛法＋政省令・特別則で具体要件を明確化。</p>
-        </article>
-        <article class="card">
-          <h3>米国</h3>
-          <p>OSHA standards と General Duty Clause の併用。</p>
-        </article>
-        <article class="card">
-          <h3>英国</h3>
-          <p>HSWA 一般義務と MHSWR のリスクベース運用。</p>
-        </article>
+      <section class="grid" aria-label="country cards">
+        <article class="card"><h3>🇯🇵 日本</h3><p>安衛法＋政省令・特別則中心。要件適合の明確性が高い。</p></article>
+        <article class="card"><h3>🇺🇸 米国</h3><p>OSHA標準 + General Duty Clauseでギャップを補完。</p></article>
+        <article class="card"><h3>🇬🇧 英国</h3><p>HSWA + MHSWR のリスクベース設計が特徴。</p></article>
       </section>
 
-      <section class="section">
-        <h2>このページでできること</h2>
-        <ul>
-          <li>3か国の法体系差を短く把握</li>
-          <li>原典リンクへすぐ移動</li>
-          <li>詳細は比較本文で条文ベース確認</li>
-        </ul>
-      </section>
-
-      <p class="footer-note">公開は Vercel 推奨。GitHub Pages でも同一ファイルで運用できます。</p>
-    </div>
+      <p class="small">Deploy: Vercel推奨（`vercel.json` 同梱）/ GitHub Pagesも任意対応。</p>
+    </main>
   </body>
 </html>
