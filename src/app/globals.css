@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a365d;
+  --color-secondary: #2d3748;
+  --color-accent: #3182ce;
+  --color-bg: #f7fafc;
+  --color-jp: #c53030;
+  --color-us: #2b6cb0;
+  --color-uk: #2f855a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "palt";
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
