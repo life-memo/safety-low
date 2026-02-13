@@ -6,6 +6,7 @@ import {
   analysisPoints,
 } from "@/data/regulations";
 import type { CountryRegulation, ComparisonItem, Source } from "@/data/regulations";
+import SearchBar from "@/components/SearchBar";
 
 function CountryFlag({ flag }: { flag: string }) {
   const flags: Record<string, string> = {
@@ -24,6 +25,9 @@ function NavBar() {
           安全衛生法規制 国際比較
         </h1>
         <div className="flex flex-wrap gap-3 text-sm">
+          <a href="/search" className="hover:text-blue-300 transition-colors font-semibold">
+            条文検索
+          </a>
           <a href="#overview" className="hover:text-blue-300 transition-colors">
             概要
           </a>
@@ -62,6 +66,9 @@ function HeroSection() {
         <p className="text-slate-400 text-sm mt-6">
           全ての記載に一次資料（法令条文・政府機関公式サイト）へのリンクを付記しています
         </p>
+        <div className="mt-8">
+          <SearchBar navigateOnSubmit />
+        </div>
       </div>
     </header>
   );
